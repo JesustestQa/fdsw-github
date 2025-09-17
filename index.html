@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="es">
 <head>
+  <link rel="stylesheet" href="styles.css">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Curriculum vitae — Tu Nombre</title>
@@ -15,7 +16,7 @@
       --muted: #6b7280;
       --accent: #0ea5a4;
       --text: #0f172a;
-      --radius: 12px;
+      --radius: 10px;
       --max-width: 900px;
     }
 
@@ -45,11 +46,11 @@
     .card{
       background:var(--card);
       border-radius:var(--radius);
-      box-shadow:0 6px 20px rgba(15,23,42,0.08);
-      padding:28px;
+      box-shadow:0 6px 20px rgba(15, 23, 43, 0.08);
+      padding:27px;
       display:grid;
       grid-template-columns: 1fr 320px;
-      gap:24px;
+      gap:25px;
     }
 
     /* Header / Nombre */
@@ -70,12 +71,12 @@
       width:84px;
       height:84px;
       border-radius:16px;
-      background:linear-gradient(135deg,var(--accent),#38bdf8);
+      background:linear-gradient(135deg,var(--accent),#34c0fc);
       display:flex;
       align-items:center;
       justify-content:center;
       font-weight:700;
-      color:white;
+      color:rgba(255, 255, 255, 0.897);
       font-size:24px;
       flex-shrink:0;
     }
@@ -111,7 +112,7 @@
 
     .field{
       background: #fbfdff;
-      border: 1px solid rgba(15,23,42,0.03);
+      border: 1px solid rgba(15, 24, 46, 0.03);
       padding:12px;
       border-radius:10px;
       margin-bottom:8px;
@@ -134,7 +135,7 @@
       text-decoration:none;
       padding:8px 10px;
       border-radius:8px;
-      border:1px dashed rgba(15,23,42,0.06);
+      border:1px dashed rgba(14, 23, 43, 0.06);
       font-size:13px;
       color:var(--text);
     }
@@ -143,7 +144,7 @@
     .exp-item{
       margin-bottom:12px;
       padding-bottom:8px;
-      border-bottom:1px dashed rgba(15,23,42,0.04);
+      border-bottom:1px dashed rgba(17, 27, 50, 0.04);
     }
     .exp-item h3{margin:0;font-size:15px}
     .exp-item .meta{font-size:13px;color:var(--muted);margin:4px 0}
