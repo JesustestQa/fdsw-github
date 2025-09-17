@@ -1,227 +1,268 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <title>Olivia Ros</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"
-        integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="assets/css/estilos.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Curriculum vitae — Tu Nombre</title>
+
+  <!-- Puedes cambiar la fuente o quitar esta línea si prefieres no depender de Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --muted: #6b7280;
+      --accent: #0ea5a4;
+      --text: #0f172a;
+      --radius: 12px;
+      --max-width: 900px;
+    }
+
+    *{box-sizing: border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg, var(--bg), #eef2f7 60%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:40px 20px;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      gap:20px;
+      min-height:100vh;
+    }
+
+    .container{
+      width:100%;
+      max-width:var(--max-width);
+      margin:0 auto;
+    }
+
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:0 6px 20px rgba(15,23,42,0.08);
+      padding:28px;
+      display:grid;
+      grid-template-columns: 1fr 320px;
+      gap:24px;
+    }
+
+    /* Header / Nombre */
+    header{
+      grid-column: 1 / span 2;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      margin-bottom:6px;
+    }
+    .profile {
+      display:flex;
+      gap:16px;
+      align-items:center;
+    }
+    .avatar{
+      width:84px;
+      height:84px;
+      border-radius:16px;
+      background:linear-gradient(135deg,var(--accent),#38bdf8);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      color:white;
+      font-size:24px;
+      flex-shrink:0;
+    }
+    .name-title{
+      line-height:1;
+    }
+    .name-title h1{
+      margin:0;
+      font-size:20px;
+      letter-spacing: -0.2px;
+    }
+    .name-title p{
+      margin:4px 0 0 0;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* Main left column */
+    main{
+      padding-right:4px;
+    }
+
+    section{
+      margin-bottom:18px;
+    }
+    section h2{
+      font-size:14px;
+      margin:0 0 10px 0;
+      text-transform:uppercase;
+      color:var(--muted);
+      letter-spacing:0.9px;
+    }
+
+    .field{
+      background: #fbfdff;
+      border: 1px solid rgba(15,23,42,0.03);
+      padding:12px;
+      border-radius:10px;
+      margin-bottom:8px;
+    }
+    .field p{margin:0;color:var(--text)}
+    .field small{display:block;color:var(--muted);font-size:13px;margin-top:6px}
+
+    /* Right column (contact & social) */
+    aside{
+      background: linear-gradient(180deg,#fbfcff, #ffffff);
+      padding:16px;
+      border-radius:10px;
+      border:1px solid rgba(15,23,42,0.03);
+      height:fit-content;
+    }
+    .contact-row{display:flex;flex-direction:column;gap:8px}
+    .contact-item{font-size:14px;color:var(--muted)}
+    .social-links{display:flex;gap:8px;margin-top:10px}
+    .social-links a{
+      text-decoration:none;
+      padding:8px 10px;
+      border-radius:8px;
+      border:1px dashed rgba(15,23,42,0.06);
+      font-size:13px;
+      color:var(--text);
+    }
+
+    /* Experience list */
+    .exp-item{
+      margin-bottom:12px;
+      padding-bottom:8px;
+      border-bottom:1px dashed rgba(15,23,42,0.04);
+    }
+    .exp-item h3{margin:0;font-size:15px}
+    .exp-item .meta{font-size:13px;color:var(--muted);margin:4px 0}
+    .exp-item p{margin:6px 0 0 0;color:var(--text)}
+
+    /* Education list */
+    .edu-item{margin-bottom:10px}
+    .edu-item p{margin:4px 0 0 0;color:var(--muted);font-size:13px}
+
+    /* Footer / print friendly */
+    footer{grid-column:1 / span 2;text-align:center;color:var(--muted);font-size:12px;margin-top:12px}
+
+    /* Responsive */
+    @media (max-width:880px){
+      .card{grid-template-columns:1fr; padding:18px}
+      aside{order:2}
+      main{order:1}
+      header{flex-direction:column;align-items:flex-start;gap:12px}
+    }
+  </style>
 </head>
-
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="assets/img/logo.png" class="img-fluid">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fs-5">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Acerca de mi</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Trabajos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contacto</a>
-                    </li>
-
-                </ul>
-
-            </div>
-        </div>
-    </nav>
-
-    <header id="Hero-Section" class="text-light text-end py-5 mt-5">
-        <div class="container">
-            <div class="ms-auto col-12 col-md-7 ">
-                <h1 class="display-1 fw-bold my-5">
-                    Comidas del fin <br> del mundo
-                </h1>
-                <p class="my-5">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, accusamus iusto quibusdam
-                    dignissimos labore sequi. Cupiditate reiciendis eius dolore, illum adipisci harum voluptas iste
-                    mollitia inventore provident labore voluptatum nemo.
-                </p>
-                <div class="mb-5 pb-5">
-                    <button class="btn btn-lg btn-outline-info text-light me-4">Trabajos</button>
-                    <button class="btn btn-lg btn-info text-light">Contacto</button>
-                </div>
-            </div>
-        </div>
-    </header>
-
-
-    <section id="Acerca-de-mi" class="container text-center my-5">
-
-
-        <h2 class="display-3 fw-bold my-4">Acerca de mi</h2>
-
-        <p class="my-4">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio quisquam distinctio, odit laborum aliquam
-            earum itaque cum sequi, dolorem optio vol
-        </p>
-
-
-        <div class="row">
-            <div class="col-12 col-md-4">
-                <i class="fas fa-camera fa-3x my-3"></i>
-                <h3 class="my-3 fw-bold">Fotógrafa de comida</h3>
-                <p class="my-3">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat.
-                </p>
-            </div>
-            <div class="col-12 col-md-4">
-                <i class="fas fa-bullhorn fa-3x my-3"></i>
-                <h3 class="my-3 fw-bold">Crítica culinaria</h3>
-                <p class="my-3">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat.
-                </p>
-            </div>
-            <div class="col-12 col-md-4">
-                <i class="far fa-map fa-3x my-3"></i>
-                <h3 class="my-3 fw-bold">Bloggera de viajes</h3>
-                <p class="my-3">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat.
-                </p>
-            </div>
-        </div>
-    </section>
-
-
-    <section id="Mis-trabajos" class="my-5 p-5 bg-info">
-
-        <h2 class="display-4 fw-bold text-center text-light mb-3">Mis trabajos</h2>
-
-        <div class="row">
-            <div class="col-12 col-sm-4 py-2">
-                <div class="card">
-                    <div class="image-top" style="background-image: url(assets/img/card-1.jpg)"></div>
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold">Asado en la Patagonia</h5>
-                        <p class="card-text">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Explicabo iure sint, perspiciatis distinctio molestias nihil
-                            repudiandae neque rem adipisci repellendus libero illo quo
-                            blanditiis, velit quasi ad, recusandae voluptates officia.
-                        </p>
-                        <button type="button" class="btn btn-outline-info">
-                            Ver más
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-4 py-2">
-                <div class="card">
-                    <div class="image-top" style="background-image: url(assets/img/card-2.jpg)"></div>
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold">Papas del fin del mundo</h5>
-                        <p class="card-text">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Deserunt a culpa doloremque voluptatem dicta nam. Maxime ipsum,
-                            consequatur quos error fuga excepturi quo. Laudantium optio
-                            pariatur laboriosam modi, ea molestias?
-                        </p>
-                        <button type="button" class="btn btn-outline-info">
-                            Ver más
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-4 py-2">
-                <div class="card">
-                    <div class="image-top" style="background-image: url(assets/img/card-3.jpg)"></div>
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold">Salmones de Alaska</h5>
-                        <p class="card-text">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Obcaecati facere quibusdam sint id laborum magni velit ducimus
-                            corporis facilis qui architecto dolor, accusamus eveniet
-                            exercitationem fugit. Quod autem neque ducimus.
-                        </p>
-                        <button type="button" class="btn btn-outline-info">
-                            Ver más
-                        </button>
-                    </div>
-                </div>
-            </div>
+  <div class="container">
+    <article class="card" aria-labelledby="titulo-cv">
+      <header>
+        <div class="profile" role="img" aria-label="avatar iniciales">
+          <div class="avatar">TN</div>
+          <div class="name-title">
+            <h1 id="titulo-cv">Jesus Arocha</h1>
+            <p>Qa Analyst and Manual tester</p>
+          </div>
         </div>
 
-    </section>
+        <div style="text-align:right">
+          <div style="font-size:12px;color:var(--muted)">Curriculum vitae</div>
+          <div style="font-weight:600;color:var(--accent)">Actualizado: <span id="fecha">2025-09-17</span></div>
+        </div>
+      </header>
 
+      <main>
+        <!-- Experiencia -->
+        <section aria-labelledby="experiencia-title">
+          <h2 id="experiencia-title">Experiencia</h2>
 
+          <article class="exp-item">
+            <h3>Nombre del puesto — Empresa A</h3>
+            <div class="meta">Mar 2022 — Presente · Ciudad, País</div>
+            <p>Descripción breve de responsabilidades, logros y tecnologías utilizadas. Es recomendable usar viñetas si hay varios puntos.</p>
+          </article>
 
-    <section id="Contacto" class="container my-5">
+          <article class="exp-item">
+            <h3>Nombre del puesto — Empresa B</h3>
+            <div class="meta">Ene 2020 — Feb 2022 · Ciudad, País</div>
+            <p>Descripción breve del rol y los resultados obtenidos.</p>
+          </article>
+        </section>
 
-        <h2 class="display-4 fw-bold text-center my-4">Contáctame</h2>
+        <!-- Educación -->
+        <section aria-labelledby="educacion-title">
+          <h2 id="educacion-title">Educación</h2>
 
-        <p class="text-center my-4 d-none d-md-block">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Doloribus
-            sapiente, autem delectus totam expedita
-            animi corporis dolorem qui magnam, aspernatur officiis quasi culpa tempora est commodi. Voluptate beatae
-            tempora quaerat?</p>
+          <div class="edu-item">
+            <strong>Ingeniería en Ejemplo — Universidad X</strong>
+            <p>2015 — 2019 · Título obtenido / Cursos relevantes</p>
+          </div>
 
-        <form>
+          <div class="edu-item">
+            <strong>Curso / Certificación</strong>
+            <p>Plataforma · Año · Breve descripción</p>
+          </div>
+        </section>
 
+        <!-- Contacto / Redes (otra opción: incluir también habilidades) -->
+        <section aria-labelledby="contacto-title">
+          <h2 id="contacto-title">Contacto</h2>
 
-            <div class="form-group mb-4">
-                <label class="mb-2">Nombre</label>
-                <input class="form-control" placeholder="Nombre">
+          <div class="field">
+            <p><strong>Teléfono:</strong> +1 555 555 555</p>
+            <small>Mejor horario de contacto: Mañanas</small>
+          </div>
+
+          <div class="field">
+            <p><strong>Email:</strong> tuemail@ejemplo.com</p>
+            <small>Revisar carpeta de SPAM si no recibes respuesta</small>
+          </div>
+        </section>
+      </main>
+
+      <aside>
+        <section aria-labelledby="perfil-title">
+          <h2 id="perfil-title">Sobre mí</h2>
+          <div class="field">
+            <p>Breve párrafo de presentación — 2 o 3 líneas donde resumas tu valor profesional, objetivos y atributos clave.</p>
+          </div>
+        </section>
+
+        <section aria-labelledby="contacto-rapido">
+          <h2 id="contacto-rapido">Contacto rápido</h2>
+          <div class="contact-row">
+            <div class="contact-item"><strong>Email:</strong> tuemail@ejemplo.com</div>
+            <div class="contact-item"><strong>Tel:</strong> +1 555 555 555</div>
+            <div class="contact-item"><strong>Ubicación:</strong> Ciudad, País</div>
+          </div>
+
+          <div style="margin-top:12px">
+            <h2 style="margin-top:12px;font-size:13px;color:var(--muted)">Redes sociales</h2>
+            <div class="social-links">
+              <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+              <a href="#" target="_blank" rel="noopener">GitHub</a>
+              <a href="#" target="_blank" rel="noopener">Portfolio</a>
             </div>
+          </div>
+        </section>
+      </aside>
 
-            <div class="form-group mb-4">
-                <label class="mb-2">Correo electrónico</label>
-                <input class="form-control" placeholder="Correo electrónico" />
-            </div>
-
-
-            <div class="form-group">
-                <label class="mb-2">Mensaje</label>
-                <textarea class="form-control" placeholder="Escribe aquí tu mensaje"></textarea>
-            </div>
-
-            <div class="my-3 text-end">
-                <button class="btn btn-info text-light">Enviar</button>
-            </div>
-
-
-
-        </form>
-
-    </section>
-
-
-
-    <footer class="bg-dark text-center text-light p-4">
-        <p class="mb-0">Olivia Ros 2019. Todos los derechos reservados.</p>
-    </footer>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
+      <footer>
+        Plantilla simple de Curriculum Vitae — editada por Tu Nombre · Exportable a PDF con impresión (Ctrl/Cmd + P)
+      </footer>
+    </article>
+  </div>
 </body>
-
 </html>
